@@ -9,8 +9,8 @@ import (
 
 func CORSMiddleware() fiber.Handler {
 	return cors.New(cors.Config{
-    AllowOrigins: utils.Env["CORS_ALLOWED_ORIGINS"],
-    AllowHeaders: "Origin, Content-Type, Accept",
+		AllowOrigins: utils.Env["CORS_ALLOWED_ORIGINS"],
+		AllowHeaders: "Origin, Content-Type, Accept",
 		ExposeHeaders: "Content-Length",
 		MaxAge: 43200,  // 12 hours
 	})

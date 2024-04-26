@@ -8,6 +8,7 @@ import (
 )
 
 type EnvMap map[string]string
+
 var Env EnvMap
 
 func LoadEnv() {
@@ -15,21 +16,21 @@ func LoadEnv() {
 		return
 	}
 
-  godotenv.Load()
-  items := EnvMap{}
+	godotenv.Load()
+	items := EnvMap{}
 
-  for _, item := range os.Environ() {
-    key, val, _ := strings.Cut(item, "=")
-    items[key] = val
-  }
+	for _, item := range os.Environ() {
+		key, val, _ := strings.Cut(item, "=")
+		items[key] = val
+	}
 
-  Env = items
+	Env = items
 }
 
 func GetenvOrDefault(key, fallback string) string {
-  if value, exists := Env[key]; exists {
-    return value
-  }
+	if value, exists := Env[key]; exists {
+		return value
+	}
 
-  return fallback
+	return fallback
 }
