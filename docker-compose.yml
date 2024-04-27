@@ -1,4 +1,10 @@
 services:
+  redis:
+    container_name: redis
+    image: redis:7
+    restart: always
+    volumes:
+      - redis_data:/data/:rw
   app:
     container_name: app
     image: app
@@ -8,3 +14,7 @@ services:
       - ./app/.env
     ports:
       - "80:8080"
+    depends_on:
+      - redis
+volumes:
+  redis_data:

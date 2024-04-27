@@ -1,6 +1,7 @@
 package main
 
 import (
+	"app/cache"
 	"app/controllers"
 	"app/middleware"
 	"app/utils"
@@ -11,6 +12,7 @@ import (
 
 func GetApp() *fiber.App {
 	utils.LoadEnv()
+	cache.LoadRedis()
 
 	app := fiber.New(fiber.Config{
 		Views: html.New("templates", ".html"),

@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"app/cache"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
@@ -23,5 +24,6 @@ func RateLimiterMiddleware(limit int, duration int) fiber.Handler {
 		Max: limit,
 		KeyGenerator: KeyGeneratorHandler,
 		LimitReached: LimitReachedHandler,
+		Storage: cache.Redis,
 	})
 }

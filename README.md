@@ -5,6 +5,7 @@ This is a simple web app powered with Fiber.
 The project uses the following:
 - Go
 - Fiber
+- Redis
 - Docker
 - Docker Compose
 
@@ -14,6 +15,7 @@ For additional information on project specifications, see the `go.mod` file in `
 In the `app` directory, create a `.env` file that contains the following environment variables:
 ```
 CORS_ALLOWED_ORIGINS=http://localhost,http://127.0.0.1
+REDIS_URL=redis://redis:6379/0
 ```
 
 ## Building
