@@ -12,9 +12,8 @@ func Root(c *fiber.Ctx) error {
 
 func Greet(c *fiber.Ctx) error {
 	name := c.Params("name", "user")
-	return c.JSON(&fiber.Map{
-		"greeting": "Hello, " + name + "!",
-	})
+	greeting := "Hello, " + name + "!"
+	return c.JSON(&fiber.Map{"greeting": greeting})
 }
 
 func Add(c *fiber.Ctx) error {

@@ -10,7 +10,7 @@ import (
 	"github.com/gofiber/template/html/v2"
 )
 
-func GetApp() *fiber.App {
+func getApp() *fiber.App {
 	utils.LoadEnv()
 	cache.LoadRedis()
 
@@ -35,6 +35,6 @@ func GetApp() *fiber.App {
 }
 
 func main() {
-	app := GetApp()
+	app := getApp()
 	app.Listen(":8080")
 }

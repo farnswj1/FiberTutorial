@@ -27,8 +27,8 @@ func LoadEnv() {
 	Env = items
 }
 
-func GetenvOrDefault(key, fallback string) string {
-	if value, exists := Env[key]; exists {
+func (env EnvMap) GetenvOrDefault(key, fallback string) string {
+	if value, exists := env[key]; exists {
 		return value
 	}
 
