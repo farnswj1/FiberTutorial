@@ -10,10 +10,12 @@ import (
 	"github.com/gofiber/template/html/v2"
 )
 
-func getApp() *fiber.App {
+func init() {
 	utils.LoadEnv()
 	cache.LoadRedis()
+}
 
+func getApp() *fiber.App {
 	app := fiber.New(fiber.Config{
 		Views: html.New("templates", ".html"),
 	})
