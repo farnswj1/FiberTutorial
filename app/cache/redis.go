@@ -17,3 +17,7 @@ func LoadRedis() {
 		URL: utils.Env["REDIS_URL"],
 	})
 }
+
+func init() {
+	LoadRedis()
+}

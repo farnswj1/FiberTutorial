@@ -34,3 +34,7 @@ func (env EnvMap) Get(key, fallback string) string {
 
 	return fallback
 }
+
+func init() {
+	LoadEnv()
+}
