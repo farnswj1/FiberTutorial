@@ -48,7 +48,6 @@ func Login(c *fiber.Ctx) error {
 	return c.JSON(&fiber.Map{"access": access})
 }
 
-
 func Restricted(c *fiber.Ctx) error {
 	user := c.Locals("user").(*jwt.Token)
 	claims := user.Claims.(jwt.MapClaims)
