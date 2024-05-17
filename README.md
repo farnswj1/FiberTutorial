@@ -16,6 +16,7 @@ In the `app` directory, create a `.env` file that contains the following environ
 ```
 CORS_ALLOWED_ORIGINS=http://localhost,http://127.0.0.1
 REDIS_URL=redis://redis:6379/0
+SECRET_KEY=supersecret
 ```
 
 ## Building
