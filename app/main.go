@@ -11,6 +11,8 @@ import (
 func getApp() *fiber.App {
 	app := fiber.New(fiber.Config{
 		Views: html.New("templates", ".html"),
+		ErrorHandler: controllers.DefaultErrorHandler,
+		ProxyHeader: "X-Forwarded-For",
 	})
 
 	// Middleware
@@ -25,6 +27,10 @@ func getApp() *fiber.App {
 	app.Get("/", controllers.Root)
 	app.Get("/users/:name", controllers.Greet)
 	app.Post("/add", controllers.Add)
+	app.Post("/login", controllers.Login)
+
+	group := app.Group("", middleware.JWTMiddleware())
+	group.Get("/restricted", controllers.Restricted)
 
 	return app
 }
