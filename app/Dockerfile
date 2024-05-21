@@ -1,4 +1,4 @@
-FROM golang:alpine as build
+FROM golang:1.22.2-alpine as build
 
 WORKDIR /opt/app
 
@@ -7,7 +7,7 @@ RUN go mod download
 RUN go mod verify
 
 COPY . ./
-RUN go build -o build -tags jsoniter
+RUN go build -o build
 
 FROM scratch
 
