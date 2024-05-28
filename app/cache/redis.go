@@ -8,7 +8,7 @@ import (
 
 var Redis *redis.Storage
 
-func LoadRedis() {
+func loadRedis() {
 	if Redis != nil {
 		return
 	}
@@ -19,5 +19,5 @@ func LoadRedis() {
 }
 
 func init() {
-	LoadRedis()
+	loadRedis()
 }
